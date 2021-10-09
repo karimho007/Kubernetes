@@ -1,0 +1,23 @@
+### Lancement d'un POD ###
+kuberctl create -f POD_SPECIFICATION.yaml
+
+############ Exemple #################
+## kubectl create -f nginx-pod.yaml ##
+######################################
+
+### Liste des PODS ###
+kubectl get pods
+namespace "default"
+
+### Description d'un POD ###
+kubectl describe pod POD_NAME
+kubectl describe po/POD_NAME
+
+### Logs d'un container d'un POD ###
+kubectl logs POD_NAME [-c CONTAINER_NAME]
+
+### Lancement d'une commande dans un Pod existant ###
+kubectl exec POD_NAME [-s CONTAINER_NAME] -- COMMAND 
+
+### Suppression d'un POD ###
+kubectl delete pod POD_NAME
