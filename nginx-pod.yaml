@@ -1,10 +1,17 @@
+# l'object Pod est stable et disponible depuis la v1 de l'API
 apiVersion: v1
+
+# Spécification ddu type  de l'élément
 kind: Pod
+
+# Ajout d'un nom, d'autres metadata peuvent être ajoutées (labels, ...)
 metadata:
-  name:
-  labels:
-    app: w3
+  name: nginx
+  
+# Spécification des containers lancés dans le Pod (un seul ici)
 spec:
   containers:
-  - name: www
+  
+  # De nombreux pramètres possibles
+   - name: www
     image: nginx:1.16
