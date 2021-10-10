@@ -1,4 +1,12 @@
-VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+############################################
+##### Kubectl Linux Installation guide #####
+############################################
+
+#### 1- Install kubectl binary with curl 
+curl - LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+#### 2- Install kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+#### 3- Test to ensure the version you installed is up-to-date
+kubectl version --client
