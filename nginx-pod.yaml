@@ -14,4 +14,4 @@ spec:
   
   # De nombreux pramètres possibles
    - name: www
-    image: nginx:1.16
+     image: nginx:1.16
