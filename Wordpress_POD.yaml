@@ -3,6 +3,8 @@ kind: Pod
 metadata:
  name: wp
 spec:
+
+###### Container pour le moteur wordpress ######
  containers:
  - image: wordpress:4.9-apache
    name: wordpress
@@ -11,14 +13,24 @@ spec:
      value: mysqlpwd
    - name: WORDPRESS_DB_HOST
      value: 127.0.0.1
+#################################################
+
+
+###### Container pour la base de données mysql ######
  - image: mysql:5.7
    name: mysql
    env:
    - name: MYSQL_ROOT_PASSWORD
      value: mysqlpwd
+## Montage du volume dans le container mysql ##
    volumeMounts:
    - name: data
      mountPath: /var/lib/mysql
+######################################################
+
+
+###### Définition d'un volume: répertoire sur la machine hôte ######
   volume:
   - name: data
     emptyDir: {}
+#####################################################################
